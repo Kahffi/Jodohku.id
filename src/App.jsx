@@ -60,7 +60,7 @@ function App() {
 
 					{(isPending || score) && (
 						<section className="flex justify-center text-xl">
-							<div className="flex flex-col items-center border min-w-96 gap-5 p-11 rounded-xl bg-slate-500/40">
+							<div className="flex flex-col items-center border min-w-96 max-w-3xl gap-5 p-11 rounded-xl bg-slate-500/40">
 								{/* loading animation */}
 								{isPending && (
 									<>

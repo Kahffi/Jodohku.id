@@ -1,5 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { AppContext } from "../App";
+import scoreContext from "../utils/scoreContext";
 
 export default function ScoreDisplay({ score }) {
 	// 31 - 68 = 37
@@ -27,8 +28,14 @@ export default function ScoreDisplay({ score }) {
 		}
 	}, [progress, score]);
 
+	function handleScoreContext() {
+		const idx = Math.ceil((score + 1) / 20) - 1;
+
+		return scoreContext[idx];
+	}
+
 	return (
-		<div className="flex flex-col gap-1 items-center">
+		<div className="flex flex-col gap-3 items-center">
 			<div className="min-h-20 min-w-20">
 				<div
 					ref={wrapperAnimRef}
@@ -74,6 +81,9 @@ export default function ScoreDisplay({ score }) {
 					</span>
 					% sebagai pasangan
 				</p>
+			)}
+			{progress >= score && (
+				<p className="text-center">{handleScoreContext()}</p>
 			)}
 		</div>
 	);
