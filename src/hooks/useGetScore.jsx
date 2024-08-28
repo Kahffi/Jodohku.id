@@ -13,7 +13,7 @@ export default function useGetScore() {
 			setScore(random.int(0, 100));
 			console.log("on wait");
 			setIsPending(false);
-		}, 1000);
+		}, 5500);
 	}
 
 	return { score, isPending, getScore };
